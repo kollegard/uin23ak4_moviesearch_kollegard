@@ -3,7 +3,7 @@ import Searchresults from "./Searchresults";
 
 export default function Layout({data, setMovie}){
     return(
-    <body>
+    <div id="body">
         <header>
             <h1>James Bond library</h1>
         </header>
@@ -11,8 +11,9 @@ export default function Layout({data, setMovie}){
             <Searchresults data={data} setMovie={setMovie}/>
         </nav>
         <main>
-            <Moviecards/>
+            <Moviecards data={data}/>
         </main>
-    </body>
+    </div>
+    
     )
 }

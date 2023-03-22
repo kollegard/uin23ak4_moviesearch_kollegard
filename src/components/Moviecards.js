@@ -1,8 +1,10 @@
-import Searchresults from "./Searchresults";
 
-export default function({setMovie}){
+export default function Moviecards({data}){
+
 
     return(
-          <h2>hei</h2>
+        <>
+          {data.map((p) => (<p>{p.Search.Title}</p>))}
+        </>
     )
 }
