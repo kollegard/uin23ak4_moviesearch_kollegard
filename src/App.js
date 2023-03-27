@@ -6,25 +6,36 @@ function App() {
 
   const [data, setData] = useState([])
   const [movie, setMovie] = useState([])
+  const [sok, setSok] = useState("james bond")
+  const [firstRender, setFirstRender] = useState(true)
 
-  useEffect(() => {
-    const info = async() =>{
-    const response = await fetch ('http://www.omdbapi.com/?s=james+bond&type=movie&apikey=3416d26d')
+  const info = async(sok) =>{
+    const response = await fetch (`http://www.omdbapi.com/?s=${sok}&type=movie&apikey=3416d26d`)
     const data = await response.json()
-    setMovie(data.articles)
+    setMovie(data.Search)
     
     console.log(data)
 
     }
 
-    info()
-  })   
+
+  useEffect(() => {
+    console.log(sok, sok.length)
+    if (firstRender) {
+      info(sok)
+      setFirstRender(false)
+    }
+
+    if (sok.length >= 3) {
+      info(sok)
+    }
+    
+  },[sok])   
       
   
   return (
 
-      <Layout data={data} setMovie={setMovie}/>
-
+      <Layout movie={movie} setMovie={setMovie} sok={sok} setSok={setSok}/>
   );
 }
 

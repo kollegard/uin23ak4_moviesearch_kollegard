@@ -1,10 +1,14 @@
+import placeholder from './placeholder.png'
 
-export default function Moviecards({data}){
+export default function Moviecards({Title, img, year}){
 
 
     return(
-        <>
-          {data.map((p) => (<p>{p.Search.Title}</p>))}
-        </>
+        <article>
+          <h2>{Title}</h2>
+          <img src= {img != "N/A" ? img : `${placeholder}`} alt={`Poster for ${Title}`}/>
+          <p>{year}</p>
+
+        </article>
     )
 }

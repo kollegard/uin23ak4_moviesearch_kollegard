@@ -1,17 +1,26 @@
 import Moviecards from "./Moviecards";
 import Searchresults from "./Searchresults";
 
-export default function Layout({data, setMovie}){
+export default function Layout({movie, setMovie, info, sok, setSok}){
     return(
     <div id="body">
         <header>
-            <h1>James Bond library</h1>
+            <h1>Movie library</h1>
         </header>
         <nav>
-            <Searchresults data={data} setMovie={setMovie}/>
+            <Searchresults movie={movie} 
+                            setMovie={setMovie} 
+                            info={info}
+                            sok={sok}
+                            setSok={setSok}/>
         </nav>
         <main>
-            <Moviecards data={data}/>
+
+            {movie?.map((p, index) => (<Moviecards 
+                                        Title={p.Title} 
+                                        key={index}
+                                        img ={p.Poster}
+                                        year = {p.Year}/>))}
         </main>
     </div>
     
