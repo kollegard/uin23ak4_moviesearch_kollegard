@@ -20,7 +20,8 @@ export default function Layout({movie, setMovie, info, sok, setSok}){
                                         Title={p.Title} 
                                         key={index}
                                         img ={p.Poster}
-                                        year = {p.Year}/>))}
+                                        year = {p.Year}
+                                        id = {p.imdbID}/>))}
         </main>
     </div>
     

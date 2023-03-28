@@ -4,27 +4,26 @@ import Layout from './components/Layout';
 
 function App() {
 
-  const [data, setData] = useState([])
   const [movie, setMovie] = useState([])
   const [sok, setSok] = useState("james bond")
   const [firstRender, setFirstRender] = useState(true)
 
   const info = async(sok) =>{
-    const response = await fetch (`http://www.omdbapi.com/?s=${sok}&type=movie&apikey=3416d26d`)
+    const response = await fetch (`http://www.omdbapi.com/?s=${sok}&?i=tt3732110&type=movie&apikey=3416d26d`)
     const data = await response.json()
     setMovie(data.Search)
     
-    console.log(data)
+    // console.log(data)
 
     }
 
 
   useEffect(() => {
-    console.log(sok, sok.length)
     if (firstRender) {
       info(sok)
       setFirstRender(false)
     }
+    //fikk veiledning av studentassistent til kodebiten over
 
     if (sok.length >= 3) {
       info(sok)
