@@ -1,18 +1,26 @@
 import Moviecards from "./Moviecards";
 import Searchresults from "./Searchresults";
 
-export default function Layout({movie, setMovie, info, sok, setSok}){
+export default function Layout({movie, setSok}){
+
+    movie?.map((p) => (p.imdbID))
+
+    const more = async(sok) =>{
+        const response = await fetch (`http://www.omdbapi.com/?i=${p.imdbID}&type=movie&apikey=3416d26d`)
+        const detail = await response.json()
+        
+        console.log(detail)
+    
+        }
+        more()
+
     return(
     <div id="body">
         <header>
             <h1>Movie library</h1>
         </header>
         <nav>
-            <Searchresults movie={movie} 
-                            setMovie={setMovie} 
-                            info={info}
-                            sok={sok}
-                            setSok={setSok}/>
+            <Searchresults setSok={setSok}/>
         </nav>
         <main>
 
@@ -22,6 +30,9 @@ export default function Layout({movie, setMovie, info, sok, setSok}){
                                         img ={p.Poster}
                                         year = {p.Year}
                                         id = {p.imdbID}/>))}
+
+            {detail?.map((d, index) => (<Moviecards
+                                        director={d.Director}/>))}
         </main>
     </div>
     

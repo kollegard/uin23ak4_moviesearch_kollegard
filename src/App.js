@@ -19,6 +19,7 @@ function App() {
 
 
   useEffect(() => {
+
     if (firstRender) {
       info(sok)
       setFirstRender(false)
