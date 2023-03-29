@@ -13,6 +13,7 @@ function App() {
     const response = await fetch (`http://www.omdbapi.com/?s=${sok}&?i=tt3732110&type=movie&apikey=3416d26d`)
     const data = await response.json()
     setMovie(data.Search)
+    //tatt inspirasjon fra forelesningen 06.03.2023
     
     // console.log(data)
 

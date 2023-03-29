@@ -7,8 +7,8 @@ export default function Moviecards({Title, img, year, id}){
 
   const more = async() =>{
     const response = await fetch (`http://www.omdbapi.com/?i=${id}&type=movie&apikey=3416d26d`)
-    const hei = await response.json()
-    setDetail(hei)
+    const wait = await response.json()
+    setDetail(wait)
 
     
     console.log(detail)
