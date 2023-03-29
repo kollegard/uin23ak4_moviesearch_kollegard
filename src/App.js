@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import './css/main.css'
 import Layout from './components/Layout';
 
 function App() {
