@@ -4,16 +4,16 @@ import Searchresults from "./Searchresults";
 export default function Layout({movie, setMovie, info, sok, setSok}){
     return(
     <div id="body">
-        <header>
-            <h1>Movie library</h1>
-        </header>
-        <nav>
-            <Searchresults movie={movie} 
-                            setMovie={setMovie} 
-                            info={info}
-                            sok={sok}
-                            setSok={setSok}/>
-        </nav>
+            <header>
+                <h1>Movie library</h1>
+            </header>
+            <nav>
+                <Searchresults movie={movie} 
+                                setMovie={setMovie} 
+                                info={info}
+                                sok={sok}
+                                setSok={setSok}/>
+            </nav>
         <main>
 
             {movie?.map((p, index) => (<Moviecards 
